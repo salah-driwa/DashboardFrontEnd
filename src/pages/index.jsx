@@ -1,5 +1,6 @@
 // src/pages/index.jsx
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const cardData = [
   {
@@ -33,9 +34,9 @@ const Index = () => {
       <h1 className="text-4xl font-bold text-white mb-8">Project</h1>
       <div className=" flex justify-center  gap-6 w-full px-4">
         {cardData.map((card) => (
-          <a
+          <Link
             key={card.id}
-            href={card.link}
+            to={card.link}
             className="rounded-lg w-96 h-96 overflow-hidden shadow-lg transform transition-transform hover:scale-105"
           >
             <img
@@ -48,7 +49,7 @@ const Index = () => {
                 {card.title}
               </h2>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </motion.div>
