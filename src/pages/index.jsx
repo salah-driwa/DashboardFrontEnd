@@ -23,7 +23,7 @@ const cardData = [
   },
   {
     id: 4,
-    title: "Health Tracker Dashboard",
+    title: "Discord Clone",
     link: "https://discord-clone12.netlify.app/",
     img: "  https://cdn.dribbble.com/userupload/14785078/file/original-e0412c4a7f985fc28b5c5418807cc427.png?resize=1600x1200",
   },
