@@ -36,6 +36,7 @@ export default withMT({
       },
       fontFamily: {
         sans: ['Urbanist', 'sans-serif'],
+        tiny: ['Tiny5', 'sans-serif'],
       },
     },
   },
