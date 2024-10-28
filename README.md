@@ -1,6 +1,6 @@
 # Dashboard Collection
 
-[Live Demo]((https://dashboard-exemples.netlify.app/))
+[Live Demo](https://dashboard-exemples.netlify.app/)
 
 This repository showcases a collection of frontend dashboard projects developed using **Vite**, **React**, and **Tailwind CSS**. Each project features a well-designed UI, responsive layouts, and visually appealing color schemes.
 
