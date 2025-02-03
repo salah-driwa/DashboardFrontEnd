@@ -4,6 +4,7 @@ import { CiCreditCard1 } from "react-icons/ci";
 import { GoHash } from "react-icons/go";
 import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
 import { IoCheckmarkCircleOutline, IoReceiptOutline } from "react-icons/io5";
+import CountUp from "./CountUp";
 
 const InvoiceHeader = () => {
   return (
@@ -13,8 +14,24 @@ const InvoiceHeader = () => {
      <button className=" bg-white p-6 mr-5 rounded-full bg-opacity-0 border border-opacity-40 border-white"> <IoReceiptOutline size={30} /></button> 
         <div className="text-7xl font-medium">
             <span className=" text-5xl px-3  font-light">$</span>
-            68     
-        <span className=" opacity-60  font-thin">,575.00</span>
+            <CountUp
+  from={0}
+  to={68}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/>        
+        <span className=" opacity-60  font-thin">,
+        <CountUp
+  from={0}
+  to={575}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/>     .00</span>
+      
         </div>
         </div>
 
@@ -63,7 +80,15 @@ const InvoiceHeader = () => {
       <span className="text-gray-400 opacity-80">Paid</span>
       <div className="bg-primary px-4 py-2 rounded-lg flex items-center gap-4 text-black">
         <IoCheckmarkCircleOutline size={30} />
-        <span>$25,000</span>
+        <span>
+        $     <CountUp
+  from={0}
+  to={25}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/>      ,000</span>
       </div>
     </div>
 
@@ -74,7 +99,15 @@ const InvoiceHeader = () => {
         <span className="border border-black rounded-full p-0.5">
           <CiCreditCard1 size={25} />
         </span>
-        <span>$10,000</span>
+        <span>$
+          <CountUp
+  from={0}
+  to={12}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/>  ,000</span>
       </div>
     </div>
   </div>
@@ -83,7 +116,22 @@ const InvoiceHeader = () => {
   <div className="flex flex-col   ">
     <span className="text-gray-400 opacity-80">Balance</span>
     <div className="text-white text-opacity-90 bg-white bg-opacity-20 px-16 rounded-full h-12 flex items-center"> 
-         <span className=" border border-white border-opacity-35 p-1 rounded-full mr-3"><CgSandClock  size={18} /></span> <span className=" pr-1">$</span> 38<span className=" opacity-60">,575</span></div>
+         <span className=" border border-white border-opacity-35 p-1 rounded-full mr-3"><CgSandClock  size={18} /></span> <span className=" pr-1">$</span> <CountUp
+  from={0}
+  to={38}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/> <span className=" opacity-60">,
+<CountUp
+  from={0}
+  to={350}
+  separator=","
+  direction="up"
+  duration={1}
+  className="count-up-text"
+/> </span></div>
   </div>
 
   {/* Days Outstanding and Pay Invoice Button */}
