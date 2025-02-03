@@ -1,5 +1,6 @@
 import { FaAngleDown, FaCalendarMinus, FaClock, FaPlus } from "react-icons/fa";
 import { FiPlus } from "react-icons/fi";
+import { motion } from "framer-motion"; // Import motion
 import DataCard from "./DataCard";
 
 const plans = [
@@ -55,35 +56,51 @@ function MealPlan() {
       </button>
 
       {plans.map((plan, index) => (
-        <div key={index} className="   mb-2  p-4 bg-white rounded-3xl">
-            <div className=" flex items-center gap-10 justify-between">
-          <h2 className="text-xl text-black font-semibold">{plan.title}</h2>
-          <p className="text-gray-600 flex items-center"> <span><FaClock />
-          </span>{plan.time}</p>
+        <motion.div 
+          key={index} 
+          className="mb-2 p-4 bg-white rounded-3xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="flex items-center gap-10 justify-between">
+            <h2 className="text-xl text-black font-semibold">{plan.title}</h2>
+            <p className="text-gray-600 flex items-center">
+              <span><FaClock /></span>
+              {plan.time}
+            </p>
           </div>
-          <div className="  flex items-center justify-between">
-            <div className="relative flex mt-5 ">
-            {plan.food.map((item, idx) => (
-                <div key={idx}  className=" ">
-              <img
-                key={idx}
-                src={item.img}
-                alt={item.name}
-                className="absolute  size-12 object-cover rounded-full"
-                style={{ top: `${idx }px`, left: `${idx * 35}px` }}
-              />
-              <p className="text-gray-500 text-sm  pt-14 ">{item.kal},</p>
-              </div>  ))}
-              <FaPlus size={46} color="white" className="  -ml-10 z-40 bg-[#212121] hover:bg-gray-600  rounded-full p-4 " /> 
-
-              </div>
-              <p className="text-gray-700 font-bold">Total: {plan.totalKcal}</p>
+          <div className="flex items-center justify-between">
+            <div className="relative flex mt-5">
+              {plan.food.map((item, idx) => (
+                <div key={idx} className="">
+                  <motion.img
+                    key={idx}
+                    src={item.img}
+                    alt={item.name}
+                    className="absolute size-12 object-cover rounded-full"
+                    style={{ top: `${idx}px`, left: `${idx * 35}px` }}
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.4, delay: idx * 0.2 }}
+                  />
+                  <p className="text-gray-500 text-sm pt-14">{item.kal},</p>
+                </div>
+              ))}
+              <motion.div
+                className="z-40 bg-[#212121]  -ml-5 mt-3 h-9 hover:bg-gray-600 rounded-full p-3"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.3, delay: 0.5 }}
+              >
+                <FaPlus size={10} color="white" />
+              </motion.div>
+            </div>
+            <p className="text-gray-700 font-bold">Total: {plan.totalKcal}</p>
           </div>
-       
-         
-        </div>
+        </motion.div>
       ))}
-         <DataCard data={nutritionData} />
+      <DataCard data={nutritionData} />
     </div>
   );
 }
